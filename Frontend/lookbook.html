@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lookbook - Styora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        .lookbook-item {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+            margin-bottom: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lookbook-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            transition: transform 1.5s ease-out;
+        }
+
+        .lookbook-item:hover .lookbook-img {
+            transform: scale(1.05);
+        }
+
+        .lookbook-caption {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 4rem;
+            max-width: 600px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .lookbook-caption h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            40% {
+                transform: translate(-50%, -10px);
+            }
+
+            60% {
+                transform: translate(-50%, -5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-dark d-flex align-items-center" href="index.html">
+                <span class="text-primary me-1">S</span>TYORA
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="lookbook.html">Lookbook</a></li>
+                    <li class="nav-item"><a class="nav-link" href="concierge.html">Concierge</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-4">
+                    <a href="cart.html" class="nav-link p-0 position-relative">
+                        <i class="fa-solid fa-bag-shopping fs-5"></i>
+                        <span class="badge bg-primary rounded-pill position-absolute top-0 start-100 translate-middle"
+                            id="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0">
+        <!-- Section: Ethereal Minimalism -->
+        <section class="lookbook-item">
+            <img src="C:/Users/YOGESH/.gemini/antigravity/brain/adc1d906-38cc-4165-9a96-99c6a6ed5b30/ethereal_minimalism_lookbook_1773557709850.png"
+                class="lookbook-img" alt="Ethereal Minimalism">
+            <div class="lookbook-caption shadow-lg">
+                <p class="text-uppercase letter-spacing-2 mb-2 small text-white-50">Narrative I</p>
+                <h2>Ethereal Minimalism</h2>
+                <p class="lead mb-4">A study in light, form, and fluid silence. Discover our signature white collection.
+                </p>
+                <a href="products.html" class="btn btn-outline-white px-5">Explore Pieces</a>
+            </div>
+            <div class="scroll-down"><i class="fa-solid fa-chevron-down"></i></div>
+        </section>
+
+        <!-- Section: Metropolitan Noir -->
+        <section class="lookbook-item">
+            <img src="C:/Users/YOGESH/.gemini/antigravity/brain/adc1d906-38cc-4165-9a96-99c6a6ed5b30/metropolitan_noir_lookbook_1773557730531.png"
+                class="lookbook-img" alt="Metropolitan Noir">
+            <div class="lookbook-caption shadow-lg">
+                <p class="text-uppercase letter-spacing-2 mb-2 small text-white-50">Narrative II</p>
+                <h2>Metropolitan Noir</h2>
+                <p class="lead mb-4">Under the city lights, the evening unfolds. Sharp silhouettes meet dark urbanity.
+                </p>
+                <a href="products.html" class="btn btn-outline-white px-5">View Collection</a>
+            </div>
+        </section>
+
+        <!-- Section: Avant-Garde Tech -->
+        <section class="lookbook-item">
+            <img src="C:/Users/YOGESH/.gemini/antigravity/brain/adc1d906-38cc-4165-9a96-99c6a6ed5b30/avant_garde_tech_lookbook_1773557570000_1773557752197.png"
+                class="lookbook-img" alt="Avant-Garde Tech">
+            <div class="lookbook-caption shadow-lg">
+                <p class="text-uppercase letter-spacing-2 mb-2 small text-white-50">Narrative III</p>
+                <h2>Avant-Garde Tech</h2>
+                <p class="lead mb-4">Futuristic comfort for the digital nomad. Where performance meets architectural
+                    luxury.</p>
+                <a href="products.html" class="btn btn-outline-white px-5">Shop Technology</a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="mt-5">
+        <!-- Footer reused but cleaned -->
+        <div class="container text-center py-5">
+            <h5 class="navbar-brand text-white mb-4">STYORA</h5>
+            <p class="text-white-50 small mb-0">© 2025 STYORA. A VISION FOR THE MODERN CENTURY.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

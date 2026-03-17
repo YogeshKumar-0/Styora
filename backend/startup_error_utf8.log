@@ -1,0 +1,95 @@
+﻿[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.styora:backend >-------------------------
+[INFO] Building backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.6:run (default-cli) > test-compile @ backend >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ backend ---
+[INFO] skip non existing resourceDirectory D:\e-Commerce\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ backend ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] <<< spring-boot:3.5.6:run (default-cli) < test-compile @ backend <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.6:run (default-cli) @ backend ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2026-03-17T00:48:46.177+05:30  INFO 25520 --- [backend] [           main] com.styora.backend.BackendApplication    : Starting BackendApplication using Java 21.0.9 with PID 25520 (D:\e-Commerce\backend\target\classes started by YOGESH in D:\e-Commerce\backend)
+2026-03-17T00:48:46.179+05:30  INFO 25520 --- [backend] [           main] com.styora.backend.BackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-17T00:48:46.907+05:30  INFO 25520 --- [backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-17T00:48:46.982+05:30  INFO 25520 --- [backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2026-03-17T00:48:47.515+05:30  INFO 25520 --- [backend] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-17T00:48:47.532+05:30  INFO 25520 --- [backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-17T00:48:47.532+05:30  INFO 25520 --- [backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2026-03-17T00:48:47.609+05:30  INFO 25520 --- [backend] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-17T00:48:47.610+05:30  INFO 25520 --- [backend] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1378 ms
+2026-03-17T00:48:47.731+05:30  INFO 25520 --- [backend] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-17T00:48:47.773+05:30  INFO 25520 --- [backend] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2026-03-17T00:48:47.802+05:30  INFO 25520 --- [backend] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-17T00:48:48.061+05:30  INFO 25520 --- [backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-17T00:48:48.085+05:30  INFO 25520 --- [backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-17T00:48:48.234+05:30  INFO 25520 --- [backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:styora-db user=SA
+2026-03-17T00:48:48.236+05:30  INFO 25520 --- [backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-17T00:48:48.256+05:30  WARN 25520 --- [backend] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-17T00:48:48.275+05:30  INFO 25520 --- [backend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-17T00:48:49.131+05:30  INFO 25520 --- [backend] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table cart_items (id bigint generated by default as identity, quantity integer not null, product_id bigint not null, user_id bigint not null, primary key (id))
+Hibernate: create table order_items (id bigint generated by default as identity, price_at_purchase float(53) not null, quantity integer not null, order_id bigint not null, product_id bigint not null, primary key (id))
+Hibernate: create table orders (id bigint generated by default as identity, order_date date, payment_status varchar(255), shipping_address varchar(255), status varchar(255), total float(53) not null, user_id bigint, primary key (id))
+Hibernate: create table products (id bigint generated by default as identity, category varchar(255), description varchar(255), image_url varchar(255), name varchar(255), price float(53) not null, stock integer not null, primary key (id))
+Hibernate: create table users (id bigint generated by default as identity, email varchar(255), full_name varchar(255), password varchar(255), phone_number varchar(255), primary key (id))
+Hibernate: alter table if exists users drop constraint if exists UK6dotkott2kjsp8vw4d0m25fb7
+Hibernate: alter table if exists users add constraint UK6dotkott2kjsp8vw4d0m25fb7 unique (email)
+Hibernate: alter table if exists users drop constraint if exists UK9q63snka3mdh91as4io72espi
+Hibernate: alter table if exists users add constraint UK9q63snka3mdh91as4io72espi unique (phone_number)
+Hibernate: alter table if exists cart_items add constraint FK1re40cjegsfvw58xrkdp6bac6 foreign key (product_id) references products
+Hibernate: alter table if exists cart_items add constraint FK709eickf3kc0dujx3ub9i7btf foreign key (user_id) references users
+Hibernate: alter table if exists order_items add constraint FKbioxgbv59vetrxe0ejfubep1w foreign key (order_id) references orders
+Hibernate: alter table if exists order_items add constraint FKocimc7dtr037rh4ls4l95nlfi foreign key (product_id) references products
+Hibernate: alter table if exists orders add constraint FK32ql8ubntj5uh44ph9659tiih foreign key (user_id) references users
+2026-03-17T00:48:49.214+05:30  INFO 25520 --- [backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-17T00:48:49.744+05:30  WARN 25520 --- [backend] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-17T00:48:49.988+05:30  INFO 25520 --- [backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2026-03-17T00:48:50.218+05:30  INFO 25520 --- [backend] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:styora-db'
+2026-03-17T00:48:50.311+05:30  INFO 25520 --- [backend] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-17T00:48:50.318+05:30  INFO 25520 --- [backend] [           main] com.styora.backend.BackendApplication    : Started BackendApplication in 4.619 seconds (process running for 4.992)
+Hibernate: select count(*) from products p1_0
+Hibernate: insert into products (category,description,image_url,name,price,stock,id) values (?,?,?,?,?,?,default)
+Hibernate: insert into products (category,description,image_url,name,price,stock,id) values (?,?,?,?,?,?,default)
+Hibernate: insert into products (category,description,image_url,name,price,stock,id) values (?,?,?,?,?,?,default)
+Hibernate: insert into products (category,description,image_url,name,price,stock,id) values (?,?,?,?,?,?,default)
+Hibernate: insert into products (category,description,image_url,name,price,stock,id) values (?,?,?,?,?,?,default)
+[SUCCESS] Sample products seeded!
+Hibernate: select u1_0.id,u1_0.email,u1_0.full_name,u1_0.password,u1_0.phone_number from users u1_0 where u1_0.email=?
+Hibernate: insert into users (email,full_name,password,phone_number,id) values (?,?,?,?,default)
+[SUCCESS] Default user 'test@example.com' created (pass: Test@1234, phone: 9876543210)
