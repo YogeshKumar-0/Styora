@@ -1,76 +1,313 @@
-/* General Styling */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary-color: #1e1b4b;
+    --background-color: #fbfbfb;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(0, 0, 0, 0.05);
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 10px 40px rgba(79, 70, 229, 0.1);
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+}
+
+/* Base Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
 }
 
 /* Navbar */
+.navbar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
 .navbar-brand {
-    font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
 }
 
 .nav-link {
     font-weight: 500;
+    color: var(--text-main) !important;
+    padding: 0.5rem 1.2rem !important;
+    transition: color 0.2s ease;
 }
 
-.navbar .nav-link.active {
-    color: #0d6efd !important; /* Bootstrap Primary Color */
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color) !important;
 }
 
-/* Hero Section */
+.badge.bg-primary {
+    background-color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+/* Hero Section 2.0 */
 .hero-section {
-    /* Updated with a more stable and relevant placeholder image */
-    background: url('https://placehold.co/1600x800/333/FFF?text=Styora') no-repeat center center;
-    background-size: cover;
-    padding: 10rem 0;
     position: relative;
+    padding: 12rem 0;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius-lg);
+    margin: 1rem;
+    overflow: hidden;
+    color: white;
 }
 
-.hero-section::before {
-    content: '';
+.hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    background: linear-gradient(90deg, rgba(17, 24, 39, 0.8) 0%, rgba(17, 24, 39, 0.2) 100%);
 }
 
-.hero-section .container {
+.hero-content {
     position: relative;
     z-index: 2;
+    max-width: 600px;
 }
 
-/* Product Card */
-.product-card {
+.hero-tagline {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
     border: none;
-    border-radius: 10px;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+}
+
+.btn-outline-white {
+    border: 2px solid white;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-white:hover {
+    background: white;
+    color: var(--text-main);
+}
+
+/* Cards */
+.product-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: all 0.4s ease;
+    overflow: hidden;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(79, 70, 229, 0.2);
 }
 
 .product-card .card-img-top {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    height: 350px;
     object-fit: cover;
-    height: 250px;
+    transition: transform 0.6s ease;
 }
 
-/* Cart Page */
-.cart-item .remove-btn {
-    padding: 0;
+.product-card:hover .card-img-top {
+    transform: scale(1.05);
 }
 
-
-/* Footer */
-footer a.text-white:hover {
-    text-decoration: underline !important;
+.product-card .card-body {
+    padding: 1.5rem;
 }
+
+.product-card .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-card .price-tag {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Recommendations Section 2.0 */
+#ai-recommendations .p-5 {
+    border-radius: var(--radius-lg);
+    border: none !important;
+    background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%) !important;
+}
+
+.recommendation-card {
+    border-radius: var(--radius-md) !important;
+    border: 1px solid rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.3s ease;
+}
+
+.recommendation-card:hover {
+    box-shadow: var(--shadow-hover) !important;
+}
+
+/* Footer 2.0 */
+footer {
+    background-color: var(--secondary-color) !important;
+    padding-top: 6rem !important;
+    padding-bottom: 4rem !important;
+    margin-top: 5rem;
+}
+
+footer h5 {
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer p,
 footer a {
-    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+footer a:hover {
+    color: white !important;
+    text-decoration: none !important;
+    padding-left: 5px;
+}
+
+/* AI Chat Widget Overhaul */
+#chat-toggle {
+    width: 65px;
+    height: 65px;
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 5px 25px rgba(79, 70, 229, 0.4);
+}
+
+#chat-window {
+    width: 400px;
+    height: 550px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Cart & Checkout Specifics */
+.cart-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    box-shadow: var(--shadow-soft);
+}
+
+.summary-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    position: sticky;
+    top: 100px;
+}
+
+.checkout-form .form-control,
+.checkout-form .form-select {
+    border-radius: var(--radius-sm);
+    padding: 0.8rem 1rem;
+    border-color: #e5e7eb;
+    background-color: #f9fafb;
+}
+
+.checkout-form .form-control:focus,
+.checkout-form .form-select:focus {
+    border-color: var(--primary-color);
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.checkout-form label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.letter-spacing-1 {
+    letter-spacing: 1px;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 2px;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.extra-small {
+    font-size: 0.75rem;
 }
