@@ -1,5 +1,5 @@
 # Use Java 17 to build and run the app
-FROM eclipse-temurin:17-jdk-jammy
+FROM eclipse-temurin:21-jdk-jammy
 WORKDIR /app
 
 # Copy all backend files into the container
