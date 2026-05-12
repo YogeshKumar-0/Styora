@@ -1,3 +1,6 @@
+import API_CONFIG from './config.js';
+const BASE_URL = API_CONFIG.BASE_URL;
+
 document.addEventListener('DOMContentLoaded', () => {
     const categoryLinks = document.querySelectorAll('.category-filter li a');
     const priceRange = document.getElementById('price-range');
@@ -33,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             selectedCategory = e.target.dataset.category;
-            
+
             // Update active link style
             categoryLinks.forEach(l => l.classList.remove('fw-bold'));
             e.target.classList.add('fw-bold');

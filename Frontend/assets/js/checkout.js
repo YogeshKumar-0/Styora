@@ -1,9 +1,10 @@
+import API_CONFIG from './config.js';
+const BASE_URL = API_CONFIG.BASE_URL;
+
 document.addEventListener('DOMContentLoaded', () => {
     const checkoutForm = document.querySelector('form');
     const checkoutCartContainer = document.getElementById('checkout-cart-items');
     const cartBadge = document.querySelector('.summary-card .badge');
-
-    const BACKEND_URL = 'http://127.0.0.1:8080';
 
     // Load cart from localStorage
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
@@ -64,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             console.log('Initiating payment for amount:', totalAmount);
-            const response = await fetch(`${BACKEND_URL}/api/payment/create-order`, {
+            const response = await fetch(`${BASE_URL}/api/payment/create-order`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                 body: JSON.stringify({ amount: totalAmount })
@@ -139,14 +140,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const verifyRes = await fetch(`${BACKEND_URL}/api/payment/verify`, {
+            const verifyRes = await fetch(`${BASE_URL}/api/payment/verify`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                 body: JSON.stringify(paymentResponse)
             });
 
             if (verifyRes.ok) {
-                const orderRes = await fetch(`${BACKEND_URL}/api/orders/place`, {
+                const orderRes = await fetch(`${BASE_URL}/api/orders/place`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                     body: JSON.stringify({ address: `${address}, ${state} - ${zip}` })

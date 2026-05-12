@@ -5,6 +5,10 @@
  * We NO LONGER need filter.js because this script handles both 
  * fetching products and filtering them by category or price.
  */
+
+import API_CONFIG from './config.js';
+const BASE_URL = API_CONFIG.BASE_URL;
+
 document.addEventListener('DOMContentLoaded', () => {
     const productContainer = document.querySelector('.row.g-4');
     const categoryFilters = document.querySelectorAll('.category-filter a');
@@ -21,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function initializeProducts() {
         try {
             // Fetch ALL products once
-            const response = await fetch('http://127.0.0.1:8080/api/products');
+            const response = await fetch(`${BASE_URL}/products`);
             allProducts = await response.json();
             applyFilters();
         } catch (error) {
@@ -117,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         try {
-            const response = await fetch(`http://127.0.0.1:8080/api/ai/search?q=${encodeURIComponent(query)}`);
+            const response = await fetch(`${BASE_URL}/ai/search?q=${encodeURIComponent(query)}`);
             if (response.ok) {
                 const results = await response.json();
                 renderProducts(results);

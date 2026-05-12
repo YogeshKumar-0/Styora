@@ -1,3 +1,6 @@
+import API_CONFIG from './config.js';
+const BASE_URL = API_CONFIG.BASE_URL;
+
 document.addEventListener('DOMContentLoaded', () => {
     const profileDropdown = document.getElementById('profileDropdownMenu');
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));

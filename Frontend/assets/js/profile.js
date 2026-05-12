@@ -1,5 +1,7 @@
+import API_CONFIG from './config.js';
+const BASE_URL = API_CONFIG.BASE_URL;
+
 document.addEventListener('DOMContentLoaded', () => {
-    const BACKEND_URL = 'http://127.0.0.1:8080';
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     const token = localStorage.getItem('authToken');
 
@@ -39,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Fetch and Render Orders ---
     async function fetchOrders() {
         try {
-            const response = await fetch(`${BACKEND_URL}/api/orders/my`, {
+            const response = await fetch(`${BASE_URL}/orders/my`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
 

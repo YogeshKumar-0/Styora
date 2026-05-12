@@ -1,3 +1,6 @@
+import API_CONFIG from './config.js';
+const BASE_URL = API_CONFIG.BASE_URL;
+
 document.addEventListener('DOMContentLoaded', () => {
     const chatToggle = document.getElementById('chat-toggle');
     const chatWindow = document.getElementById('chat-window');
@@ -5,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input');
     const chatSend = document.getElementById('chat-send');
     const chatMessages = document.getElementById('chat-messages');
-    const BACKEND_URL = 'http://127.0.0.1:8080';
 
     // Toggle Chat Window
     chatToggle.addEventListener('click', () => {
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const token = localStorage.getItem('authToken');
-            const response = await fetch(`${BACKEND_URL}/api/ai/chat`, {
+            const response = await fetch(`${BASE_URL}/api/ai/chat`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,4 +1,6 @@
 // In assets/script.js
+import API_CONFIG from './config.js';
+const BASE_URL = API_CONFIG.BASE_URL;
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -37,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const token = localStorage.getItem('authToken');
         if (token) {
             try {
-                await fetch('http://127.0.0.1:8080/api/cart/add', {
+                await fetch(`${BASE_URL}/cart/add`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -115,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const localCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
             if (localCart.length > 0) {
                 for (const item of localCart) {
-                    await fetch('http://127.0.0.1:8080/api/cart/add', {
+                    await fetch(`${BASE_URL}/cart/add`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -130,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Now fetch the unified cart from backend
-            const response = await fetch('http://127.0.0.1:8080/api/cart', {
+            const response = await fetch(`${BASE_URL}/cart`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (response.ok) {
@@ -153,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Homepage Essentials Injection ---
     const essentialsContainer = document.getElementById('essentials-container');
     if (essentialsContainer) {
-        fetch('http://127.0.0.1:8080/api/products')
+        fetch(`${BASE_URL}/products`)
             .then(res => res.json())
             .then(products => {
                 const headliners = products.slice(0, 4);
@@ -187,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         window.addToCart(product);
                     });
                 });
-                
+
                 // Re-bind cursor hover events for newly injected dynamic products
                 if (typeof window.rebindCursorEvents === 'function') {
                     window.rebindCursorEvents();

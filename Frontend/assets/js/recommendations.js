@@ -1,7 +1,9 @@
+import API_CONFIG from './config.js';
+const BASE_URL = API_CONFIG.BASE_URL;
+
 document.addEventListener('DOMContentLoaded', () => {
     const recommendationsSection = document.getElementById('ai-recommendations');
     const container = document.getElementById('recommendations-container');
-    const BACKEND_URL = 'http://127.0.0.1:8080';
 
     async function fetchAIRecommendations() {
         const cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers['Authorization'] = `Bearer ${token}`;
             }
 
-            const response = await fetch(`${BACKEND_URL}/api/ai/recommendations`, {
+            const response = await fetch(`${BASE_URL}/ai/recommendations`, {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify({ context: context })

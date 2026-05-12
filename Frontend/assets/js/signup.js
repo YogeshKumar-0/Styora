@@ -1,3 +1,6 @@
+import API_CONFIG from './config.js';
+const BASE_URL = API_CONFIG.BASE_URL;
+
 document.addEventListener('DOMContentLoaded', () => {
     // Get the form and input elements from the HTML
     const signupForm = document.getElementById('signupForm');
@@ -21,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Send the user data to your backend API endpoint using fetch
-            const response = await fetch('http://127.0.0.1:8080/api/auth/signup', {
+            const response = await fetch(`${BASE_URL}/auth/signup`, {
                 method: 'POST', // The HTTP method
                 headers: {
                     'Content-Type': 'application/json' // Tell the server we are sending JSON data

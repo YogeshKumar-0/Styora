@@ -1,3 +1,6 @@
+import API_CONFIG from './config.js';
+const BASE_URL = API_CONFIG.BASE_URL;
+
 document.addEventListener('DOMContentLoaded', () => {
     const togglePassword = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('password');
