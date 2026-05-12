@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('loggedInUser', JSON.stringify(result.user));
 
                 // Display a personalized welcome message
-                messageDiv.innerHTML = `<div class="alert alert-success">Welcome back, ${result.fullName}! Redirecting...</div>`;
+                const displayName = result.user ? result.user.fullName : (result.fullName || 'User');
+                messageDiv.innerHTML = `<div class="alert alert-success">Welcome back, ${displayName}! Redirecting...</div>`;
 
                 // Wait for 2 seconds and then redirect
                 setTimeout(() => {
