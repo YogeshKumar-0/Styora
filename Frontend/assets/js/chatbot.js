@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatSend = document.getElementById('chat-send');
     const chatMessages = document.getElementById('chat-messages');
 
+    if (!chatToggle || !chatWindow || !chatInput || !chatSend) {
+        return;
+    }
+
     // Toggle Chat Window
     chatToggle.addEventListener('click', () => {
         chatWindow.classList.toggle('d-none');
@@ -37,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const token = localStorage.getItem('authToken');
-            const response = await fetch(`${BASE_URL}/api/ai/chat`, {
+            const response = await fetch(`${BASE_URL}/ai/chat`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
