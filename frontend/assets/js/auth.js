@@ -2,8 +2,9 @@ import API_CONFIG from "./config.js";
 const BASE_URL = API_CONFIG.BASE_URL;
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Local Storage se data uthao
-  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  const rawData = localStorage.getItem("loggedInUser");
+  const loggedInUser =
+    rawData && rawData !== "undefined" ? JSON.parse(rawData) : null;
   const profileDropdownParent = document.getElementById("profileDropdown");
   const profileDropdownMenu = document.getElementById("profileDropdownMenu");
 
