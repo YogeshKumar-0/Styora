@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
+/* 1. Global Reset to kill the horizontal scroll */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     --primary-color: #4f46e5;
     --primary-hover: #4338ca;
@@ -70,75 +79,42 @@ h6,
     font-weight: 600;
 }
 
-/* Hero Section 2.0 - Fully Adaptive & Cinematic */
+/* 2. Refined Hero Section */
 .hero-section {
     position: relative;
-    /* Scales between 60% and 80% of the screen height */
-    min-height: clamp(60vh, 75vh, 85vh);
+    min-height: 80vh;
     display: flex;
     align-items: center;
-
-    /* Image Handling: Auto-adjusts to fit any screen */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
-    /* Smoother for mobile browsers */
 
-    /* Layout Fixes: Margin 0 for mobile to prevent horizontal gaps */
+    /* MOBILE FIX: No margins on small screens to prevent the gap */
     margin: 0;
     width: 100%;
+    border-radius: 0;
+    /* Flush to edges on mobile looks cleaner */
     overflow: hidden;
     color: white;
 }
 
-/* Card effect for Desktop only */
+/* 3. Desktop "Card" Look */
 @media (min-width: 768px) {
     .hero-section {
         margin: 1.5rem auto;
-        /* Centers the card */
+        /* Centers the card perfectly */
+        /* calc(100% - total horizontal margin) */
         width: calc(100% - 3rem);
         border-radius: var(--radius-lg);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
     }
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Darkens the left side for text readability while leaving the right clear */
-    background: linear-gradient(to right, rgba(17, 24, 39, 0.85) 0%, rgba(17, 24, 39, 0.2) 100%);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 2.5rem;
-}
-
-/* Fluid Typography: No more oversized text on small screens */
-.hero-content h1 {
-    font-size: clamp(2.2rem, 8vw, 4.5rem) !important;
-    line-height: 1.1;
-    font-weight: 800;
-}
-
-.hero-content .lead {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    max-width: 500px;
-}
-
+/* 4. Fix the "S" peeking out (The Tagline) */
 .hero-tagline {
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--primary-color);
-    font-size: 0.9rem;
+    white-space: nowrap;
+    /* Prevents text from breaking and pushing width */
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
+    width: fit-content;
 }
 
 /* Buttons */
@@ -411,29 +387,26 @@ footer a:hover {
     }
 }
 
-/* Keep Chat as a Popup on all devices */
 #chat-window {
-    width: 350px;
-    max-width: 92vw;
-    /* Ensure it doesn't touch screen edges on small phones */
-    height: 500px;
-    max-height: 70vh;
-    /* Prevents it from covering the entire header */
-    bottom: 85px;
-    right: 15px;
+    width: 320px !important;
+    /* Set a fixed width for mobile */
+    max-width: 85vw;
+    /* Ensure it doesn't exceed screen width */
+    height: 450px;
+    right: 20px;
+    bottom: 90px;
     position: fixed;
-    z-index: 1060;
-    border-radius: var(--radius-md);
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    /* Ensure the internal text doesn't squish */
+    overflow: hidden;
 }
 
-/* On very small screens, just center it slightly more */
-@media (max-width: 400px) {
-    #chat-window {
-        right: 4vw;
-        left: 4vw;
-        width: auto;
-    }
+/* Ensure the header and footer inside the chat don't collapse */
+#chat-window .card-header,
+#chat-window .card-footer {
+    width: 100%;
+    flex-shrink: 0;
 }
 
 /* 5. Utility: Responsive Spacing */
