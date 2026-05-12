@@ -25,14 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     } else {
-        // If NOT logged in: Create Login/Signup buttons NEXT TO the cart
+        // ✅ Side-by-side buttons with Flexbox gap
         const loginSignupHtml = `
-            <a href="login.html" class="btn btn-outline-primary btn-sm me-2">Login</a>
-            <a href="signup.html" class="btn btn-primary btn-sm me-3">Sign Up</a>
+            <div class="d-flex align-items-center gap-2 me-3">
+                <a href="login.html" class="btn btn-outline-primary btn-navbar">Login</a>
+                <a href="signup.html" class="btn btn-primary btn-navbar">Sign Up</a>
+            </div>
         `;
-        // Hide the empty user icon and show buttons instead
         const profileDropdownParent = document.getElementById('profileDropdown');
-        if (profileDropdownParent) profileDropdownParent.parentElement.innerHTML = loginSignupHtml;
+        if (profileDropdownParent) {
+            profileDropdownParent.parentElement.innerHTML = loginSignupHtml;
+        }
     }
 
     // --- Global Cart Count Sync ---

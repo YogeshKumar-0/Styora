@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* 1. Global Reset to kill the horizontal scroll */
+/* =========================
+   GLOBAL RESET
+========================= */
 html,
 body {
     max-width: 100%;
@@ -9,6 +11,9 @@ body {
     padding: 0;
 }
 
+/* =========================
+   ROOT VARIABLES
+========================= */
 :root {
     --primary-color: #4f46e5;
     --primary-hover: #4338ca;
@@ -16,16 +21,21 @@ body {
     --background-color: #fbfbfb;
     --text-main: #111827;
     --text-muted: #6b7280;
+
     --glass-bg: rgba(255, 255, 255, 0.7);
     --border-color: rgba(0, 0, 0, 0.05);
+
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.03);
     --shadow-hover: 0 10px 40px rgba(79, 70, 229, 0.1);
+
     --radius-sm: 8px;
     --radius-md: 14px;
     --radius-lg: 24px;
 }
 
-/* Base Styles */
+/* =========================
+   BASE
+========================= */
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-main);
@@ -45,46 +55,16 @@ h6,
     font-weight: 700;
 }
 
-/* Navbar */
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
-    padding: 1rem 0;
+    padding: 0.9rem 0;
     transition: all 0.3s ease;
-}
-
-.navbar .btn {
-    font-weight: 600;
-    font-size: 0.95rem;
-    border-radius: var(--radius-sm);
-    /* Using your 8px radius */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 100px;
-    /* Optional: ensures buttons don't shrink too much */
-    height: 42px;
-    /* Optional: locks the height for both */
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-}
-
-/* Specific styling for the outline (Login) */
-.btn-outline-primary {
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    background: transparent;
-}
-
-.btn-outline-primary:hover {
-    background-color: var(--primary-color);
-    color: white;
 }
 
 .navbar-brand {
@@ -94,116 +74,80 @@ h6,
 
 .nav-link {
     font-weight: 500;
-    color: var(--text-main) !important;
-    padding: 0.5rem 1.2rem !important;
-    transition: color 0.3s ease, transform 0.3s ease;
+    color: var(--text-main);
+    padding: 0.5rem 1.1rem;
+    transition: all 0.3s ease;
     display: inline-block;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--primary-color) !important;
+    color: var(--primary-color);
     transform: translateY(-2px);
 }
 
 .badge.bg-primary {
-    background-color: var(--primary-color) !important;
+    background-color: var(--primary-color);
     font-weight: 600;
 }
 
-.hero-section {
-    position: relative;
-    min-height: 80vh;
+/* =========================
+   NAVBAR BUTTONS
+========================= */
+.btn-navbar {
+    height: 40px;
+    min-width: 100px;
+    padding: 0 16px;
     display: flex;
     align-items: center;
-    margin: 0;
-    width: 100%;
-    overflow: hidden;
-    /* CRITICAL: This hides the part of the image outside the screen */
-    color: white;
-    background: #000;
-    /* Fallback color */
+    justify-content: center;
+
+    font-size: 0.88rem;
+    font-weight: 600;
+
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+
+    transition: all 0.3s ease;
 }
 
-/* We create a pseudo-element for the background so only the image moves, not the text */
-.hero-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150%;
-    /* Image is wider than the screen to allow for sliding */
-    height: 100%;
-    background-image: url('assets/images/hero-image.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 0;
-    /* The Animation */
-    animation: panHero 20s ease-in-out infinite alternate;
+.navbar .d-flex.align-items-center {
+    flex-wrap: nowrap;
 }
 
-@keyframes panHero {
-    0% {
-        transform: translateX(0) scale(1);
-    }
-
-    100% {
-        transform: translateX(-20%) scale(1.1);
-        /* Slides left and zooms in slightly */
-    }
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
-    z-index: 1;
-    /* Sits above the moving image */
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    /* Sits above the overlay */
-    padding: 2rem;
-}
-
-@media (max-width: 576px) {
-    .hero-content {
-        max-width: 100%;
-        text-align: center;
-        padding: 1.5rem;
-    }
-
-    .hero-content h1 {
-        font-size: 2.2rem !important;
-        /* Ensures text stays inside the screen */
-    }
-}
-
-/* Buttons */
+/* =========================
+   BUTTONS
+========================= */
 .btn-primary {
     background-color: var(--primary-color);
-    border: none;
+    border: 1px solid var(--primary-color);
     padding: 1rem 2.5rem;
     border-radius: var(--radius-sm);
     font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
 .btn-outline-white {
-    border: 2px solid white;
-    color: white;
+    border: 2px solid #fff;
+    color: #fff;
     padding: 1rem 2.5rem;
     border-radius: var(--radius-sm);
     font-weight: 600;
@@ -211,23 +155,98 @@ h6,
 }
 
 .btn-outline-white:hover {
-    background: white;
+    background: #fff;
     color: var(--text-main);
 }
 
-/* Cards */
-.product-card {
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    transition: all 0.4s ease;
-    overflow: hidden;
+/* Focus Accessibility */
+button:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(79, 70, 229, 0.3);
+    outline-offset: 2px;
 }
 
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(79, 70, 229, 0.2);
+/* =========================
+   HERO SECTION
+========================= */
+.hero-section {
+    position: relative;
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    overflow: hidden;
+
+    color: white;
+    background: #000;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    width: 150%;
+    height: 100%;
+
+    background-image: url('assets/images/hero-image.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 0;
+
+    animation: panHero 20s ease-in-out infinite alternate;
+
+    will-change: transform;
+}
+
+@keyframes panHero {
+    0% {
+        transform: translateX(0) scale(1);
+    }
+
+    50% {
+        transform: translateX(-15%) scale(1.05);
+    }
+
+    100% {
+        transform: translateX(-25%) scale(1.08);
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0.72) 0%,
+            rgba(0, 0, 0, 0.35) 100%);
+
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+}
+
+/* =========================
+   PRODUCT CARDS
+========================= */
+.product-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+
+    overflow: hidden;
+
+    transition: all 0.35s ease;
 }
 
 .product-card .card-img-top {
@@ -236,23 +255,14 @@ h6,
     transition: transform 0.6s ease;
 }
 
-.product-card:hover .card-img-top {
-    transform: scale(1.05);
-}
-
 .product-card .card-body {
     padding: 1.5rem;
-    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .product-card .card-title {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
     transition: color 0.3s ease;
-}
-
-.product-card:hover .card-title {
-    color: var(--primary-color);
 }
 
 .product-card .price-tag {
@@ -261,68 +271,182 @@ h6,
     color: var(--primary-color);
 }
 
-/* Recommendations Section 2.0 */
+@media (hover: hover) {
+    .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-hover);
+        border-color: rgba(79, 70, 229, 0.2);
+    }
+
+    .product-card:hover .card-img-top {
+        transform: scale(1.05);
+    }
+
+    .product-card:hover .card-title {
+        color: var(--primary-color);
+    }
+}
+
+/* =========================
+   AI SECTION
+========================= */
 #ai-recommendations .p-5 {
     border-radius: var(--radius-lg);
-    border: none !important;
-    background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%) !important;
+    background: linear-gradient(135deg,
+            #f8faff 0%,
+            #ffffff 100%);
 }
 
 .recommendation-card {
-    border-radius: var(--radius-md) !important;
-    border: 1px solid rgba(0, 0, 0, 0.03) !important;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0, 0, 0, 0.03);
     transition: all 0.3s ease;
 }
 
 .recommendation-card:hover {
-    box-shadow: var(--shadow-hover) !important;
+    box-shadow: var(--shadow-hover);
 }
 
-/* Footer 2.0 */
+/* =========================
+   CHAT WIDGET
+========================= */
+#chat-toggle {
+    width: 65px;
+    height: 65px;
+
+    background-color: var(--primary-color);
+
+    box-shadow: 0 5px 25px rgba(79, 70, 229, 0.4);
+}
+
+#chat-window {
+    position: fixed;
+
+    right: 20px;
+    bottom: 90px;
+
+    width: 400px;
+    max-width: 90vw;
+
+    height: 550px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+#chat-window .card-header,
+#chat-window .card-footer {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* =========================
+   CART
+========================= */
+.cart-item {
+    background: #fff;
+
+    padding: 1.5rem;
+
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+
+    margin-bottom: 1.5rem;
+
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    box-shadow: var(--shadow-soft);
+}
+
+.summary-card {
+    background: #fff;
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+
+    padding: 2.5rem;
+
+    position: sticky;
+    top: 100px;
+}
+
+/* =========================
+   FORMS
+========================= */
+.checkout-form .form-control,
+.checkout-form .form-select {
+    border-radius: var(--radius-sm);
+
+    padding: 0.8rem 1rem;
+
+    border-color: #e5e7eb;
+
+    background-color: #f9fafb;
+}
+
+.checkout-form .form-control:focus,
+.checkout-form .form-select:focus {
+    border-color: var(--primary-color);
+    background-color: white;
+
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.checkout-form label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+/* =========================
+   FOOTER
+========================= */
 footer {
-    background-color: var(--secondary-color) !important;
-    padding-top: 6rem !important;
-    padding-bottom: 4rem !important;
+    background-color: var(--secondary-color);
+
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+
     margin-top: 5rem;
 }
 
 footer h5 {
     color: white;
+
     margin-bottom: 2rem;
+
     font-size: 1.1rem;
+
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 footer p,
 footer a {
-    color: rgba(255, 255, 255, 0.6) !important;
+    color: rgba(255, 255, 255, 0.72);
+
     font-size: 0.95rem;
+
     transition: all 0.2s ease;
 }
 
 footer a:hover {
-    color: white !important;
-    text-decoration: none !important;
+    color: white;
+    text-decoration: none;
     padding-left: 5px;
 }
 
-/* AI Chat Widget Overhaul */
-#chat-toggle {
-    width: 65px;
-    height: 65px;
-    background-color: var(--primary-color) !important;
-    box-shadow: 0 5px 25px rgba(79, 70, 229, 0.4);
-}
-
-#chat-window {
-    width: 400px;
-    height: 550px;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
-}
-
-/* Scrollbar Style */
+/* =========================
+   SCROLLBAR
+========================= */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -340,50 +464,9 @@ footer a:hover {
     background: var(--primary-color);
 }
 
-/* Cart & Checkout Specifics */
-.cart-item {
-    background: white;
-    padding: 1.5rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-color);
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.cart-item:hover {
-    box-shadow: var(--shadow-soft);
-}
-
-.summary-card {
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem;
-    position: sticky;
-    top: 100px;
-}
-
-.checkout-form .form-control,
-.checkout-form .form-select {
-    border-radius: var(--radius-sm);
-    padding: 0.8rem 1rem;
-    border-color: #e5e7eb;
-    background-color: #f9fafb;
-}
-
-.checkout-form .form-control:focus,
-.checkout-form .form-select:focus {
-    border-color: var(--primary-color);
-    background-color: white;
-    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
-}
-
-.checkout-form label {
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    color: var(--text-main);
-}
-
+/* =========================
+   UTILITIES
+========================= */
 .letter-spacing-1 {
     letter-spacing: 1px;
 }
@@ -400,52 +483,71 @@ footer a:hover {
     font-size: 0.75rem;
 }
 
-/* --- RESPONSIVE AUTO-ADJUSTMENTS --- */
+.py-responsive {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
 
-/* 1. Responsive Typography (Fluid Scale) */
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 991px) {
+    .navbar {
+        padding: 0.5rem 0;
+    }
+
+    .navbar-collapse {
+        background: white;
+
+        margin-top: 1rem;
+        padding: 1rem;
+
+        border-radius: var(--radius-md);
+
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-link {
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+
 @media (max-width: 768px) {
     .display-2 {
-        font-size: 2.5rem !important;
+        font-size: 2.5rem;
     }
 
     .display-5 {
-        font-size: 2rem !important;
+        font-size: 2rem;
     }
 
     .hero-section {
         padding: 6rem 0;
-        margin: 0;
-        border-radius: 0;
     }
 
     .hero-content {
         text-align: center;
         margin: 0 auto;
     }
-}
 
-/* 2. Navbar Mobile Adjustments */
-@media (max-width: 991px) {
-    .navbar {
-        padding: 0.5rem 0;
-    }
-
-    .nav-link {
-        padding: 0.8rem 1rem !important;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .navbar-collapse {
-        background: white;
-        margin-top: 1rem;
-        border-radius: var(--radius-md);
-        padding: 1rem;
-        box-shadow: var(--shadow-hover);
+    .py-responsive {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
     }
 }
 
-/* 3. Product Image Height Fix for Mobile */
 @media (max-width: 576px) {
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
     .product-card .card-img-top {
         height: 280px;
     }
@@ -453,37 +555,25 @@ footer a:hover {
     .product-card .card-body {
         padding: 1rem;
     }
+
+    #chat-window {
+        width: 320px;
+        height: 450px;
+    }
+
+    .btn-navbar {
+        min-width: 88px;
+        height: 38px;
+        font-size: 0.82rem;
+    }
 }
 
-#chat-window {
-    width: 320px !important;
-    /* Set a fixed width for mobile */
-    max-width: 85vw;
-    /* Ensure it doesn't exceed screen width */
-    height: 450px;
-    right: 20px;
-    bottom: 90px;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    /* Ensure the internal text doesn't squish */
-    overflow: hidden;
-}
+@media (min-width: 992px) {
+    .btn-navbar {
+        min-width: 110px;
+        height: 42px;
+    }
 
-/* Ensure the header and footer inside the chat don't collapse */
-#chat-window .card-header,
-#chat-window .card-footer {
-    width: 100%;
-    flex-shrink: 0;
-}
-
-/* 5. Utility: Responsive Spacing */
-.py-responsive {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
-@media (min-width: 768px) {
     .py-responsive {
         padding-top: 6rem;
         padding-bottom: 6rem;
