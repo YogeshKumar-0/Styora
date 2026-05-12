@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addToCart = async function (product) {
-        const existingItem = cart.find(item => item.id === product.id);
+        const existingItem = cart.find(item => String(item.id) === String(product.id));
         if (existingItem) {
             existingItem.quantity++;
         } else {
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(products => {
                 const headliners = products.slice(0, 4);
                 essentialsContainer.innerHTML = headliners.map(p => `
-                    <div class="col-md-3">
+                    <div class="col-12 col-sm-6 col-lg-3 mb-4">
                         <div class="card product-card h-100" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" data-image="${p.imageUrl}">
                             <div class="position-relative overflow-hidden">
                                 <img src="${p.imageUrl}" class="card-img-top" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=600'">
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target.closest('.remove-btn')) {
                 const button = e.target.closest('.remove-btn');
                 const id = button.dataset.id;
-                cart = cart.filter(item => item.id !== id);
+                cart = cart.filter(item => String(item.id) !== String(id));
                 saveCart();
                 renderCartItems();
             }

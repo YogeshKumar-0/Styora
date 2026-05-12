@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderRecommendations(products) {
         recommendationsSection.style.display = 'block';
         container.innerHTML = products.map(product => `
-            <div class="col-md-6 col-lg-3">
+            <div class="col-12 col-sm-6 col-lg-3">
                 <div class="card h-100 shadow-sm border-0 recommendation-card">
                     <div class="position-relative overflow-hidden rounded-top">
                         <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}" style="height: 250px; object-fit: cover;">

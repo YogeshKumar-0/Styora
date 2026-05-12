@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         productContainer.innerHTML = products.map(product => `
-            <div class="col-md-6 col-lg-4 product-item">
+            <div class="col-12 col-sm-6 col-lg-4 mb-4 product-item">
                 <div class="card product-card h-100" 
                      data-id="${product.id}" 
                      data-name="${product.name}" 

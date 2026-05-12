@@ -319,3 +319,84 @@ footer a:hover {
 .extra-small {
     font-size: 0.75rem;
 }
+
+/* --- RESPONSIVE AUTO-ADJUSTMENTS --- */
+
+/* 1. Responsive Typography (Fluid Scale) */
+@media (max-width: 768px) {
+    .display-2 {
+        font-size: 2.5rem !important;
+    }
+
+    .display-5 {
+        font-size: 2rem !important;
+    }
+
+    .hero-section {
+        padding: 6rem 0;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .hero-content {
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+/* 2. Navbar Mobile Adjustments */
+@media (max-width: 991px) {
+    .navbar {
+        padding: 0.5rem 0;
+    }
+
+    .nav-link {
+        padding: 0.8rem 1rem !important;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .navbar-collapse {
+        background: white;
+        margin-top: 1rem;
+        border-radius: var(--radius-md);
+        padding: 1rem;
+        box-shadow: var(--shadow-hover);
+    }
+}
+
+/* 3. Product Image Height Fix for Mobile */
+@media (max-width: 576px) {
+    .product-card .card-img-top {
+        height: 280px;
+    }
+
+    .product-card .card-body {
+        padding: 1rem;
+    }
+}
+
+/* 4. Chat Widget Mobile Overhaul (Full Screen) */
+@media (max-width: 576px) {
+    #chat-window {
+        width: 100% !important;
+        height: 100vh !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        position: fixed !important;
+        border-radius: 0 !important;
+        z-index: 9999;
+    }
+}
+
+/* 5. Utility: Responsive Spacing */
+.py-responsive {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .py-responsive {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
