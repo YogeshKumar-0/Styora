@@ -375,16 +375,28 @@ footer a:hover {
     }
 }
 
-/* 4. Chat Widget Mobile Overhaul (Full Screen) */
-@media (max-width: 576px) {
+/* Keep Chat as a Popup on all devices */
+#chat-window {
+    width: 350px;
+    max-width: 92vw;
+    /* Ensure it doesn't touch screen edges on small phones */
+    height: 500px;
+    max-height: 70vh;
+    /* Prevents it from covering the entire header */
+    bottom: 85px;
+    right: 15px;
+    position: fixed;
+    z-index: 1060;
+    border-radius: var(--radius-md);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* On very small screens, just center it slightly more */
+@media (max-width: 400px) {
     #chat-window {
-        width: 100% !important;
-        height: 100vh !important;
-        bottom: 0 !important;
-        right: 0 !important;
-        position: fixed !important;
-        border-radius: 0 !important;
-        z-index: 9999;
+        right: 4vw;
+        left: 4vw;
+        width: auto;
     }
 }
 

@@ -68,14 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 itemElement.className = 'cart-item';
                 itemElement.innerHTML = `
                     <div class="row align-items-center">
-                        <div class="col-3 col-md-2">
+                        <div class="col-4 col-md-2">
                             <img src="${item.image}" class="img-fluid rounded-3" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=100'">
                         </div>
-                        <div class="col-9 col-md-4">
+                        <div class="col-8 col-md-4">
                             <h5 class="mb-1 fw-600 fs-6">${item.name}</h5>
                             <p class="text-muted extra-small mb-0">Signature Piece</p>
                         </div>
-                        <div class="col-4 col-md-2 mt-3 mt-md-0">
+                        <div class="col-6 col-md-2 mt-3 mt-md-0">
                             <div class="input-group input-group-sm border rounded-pill overflow-hidden">
                                 <input type="number" value="${item.quantity}" min="1" class="form-control border-0 text-center quantity-input" data-id="${item.id}" style="max-width: 60px;">
                             </div>
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="col-4 col-md-2 mt-3 mt-md-0 text-center text-md-start">
                             <p class="fw-700 mb-0 text-primary">Rs. ${(item.price * item.quantity).toFixed(2)}</p>
                         </div>
-                        <div class="col-4 col-md-2 mt-3 mt-md-0 text-end">
+                        <div class="col-2 col-md-2 mt-3 mt-md-0 text-end">
                             <button class="btn btn-link text-danger remove-btn p-0" data-id="${item.id}">
                                 <i class="fa-regular fa-trash-can"></i>
                             </button>
