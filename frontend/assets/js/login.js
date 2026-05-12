@@ -36,8 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await response.json();
 
       if (response.ok) {
-        const result = await response.json();
-
         // JWT Token save karo
         localStorage.setItem("authToken", result.token);
 
