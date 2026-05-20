@@ -1,4 +1,4 @@
-# 🛍️ Styora | Modern Full-Stack E-Commerce Platform
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fa355e97-33dd-472f-bda4-73e7314239b4" /># 🛍️ Styora | Modern Full-Stack E-Commerce Platform
 
 Styora is a scalable, cloud-integrated full-stack e-commerce platform built using React, Spring Boot, PostgreSQL, and Supabase.  
 The project combines a modern responsive frontend with a secure RESTful backend architecture to provide a seamless online shopping experience.
@@ -322,15 +322,15 @@ npm test
 
 ---
 
-# 📸 Screenshots
+## 📸 Screenshots
 
-> Add project screenshots here
+![Login Page](https://github.com/user-attachments/assets/2b7c0c39-a388-407b-8953-f32c57db948e)
 
-Example:
 
-```markdown
-![Home Page](./screenshots/home.png)
-```
+![Home Page](https://github.com/user-attachments/assets/809616eb-54db-4e13-976d-b3d509138a9e)
+
+![Collection Page](https://github.com/user-attachments/assets/37be9369-5002-4ba8-970a-66c73b51853d)
+
 
 ---
 
