@@ -324,10 +324,9 @@ npm test
 
 ## 📸 Screenshots
 
-![Login Page](https://github.com/user-attachments/assets/d56d9559-50fe-424c-a395-2f24219d72fa)
+![Login Page](https://github.com/user-attachments/assets/3d60bc5d-8199-412b-9874-850a64ee0a19)
 
-
-![Home Page](https://github.com/user-attachments/assets/809616eb-54db-4e13-976d-b3d509138a9e)
+![Home Page](https://github.com/user-attachments/assets/d56d9559-50fe-424c-a395-2f24219d72fa)
 
 ![Collection Page](https://github.com/user-attachments/assets/37be9369-5002-4ba8-970a-66c73b51853d)
 
