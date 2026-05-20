@@ -1,4 +1,4 @@
-🛍️ Styora | Modern Full-Stack E-Commerce Platform
+## 🛍️ Styora | Modern Full-Stack E-Commerce Platform
 
 Styora is a scalable, cloud-integrated full-stack e-commerce platform built using React, Spring Boot, PostgreSQL, and Supabase.  
 The project combines a modern responsive frontend with a secure RESTful backend architecture to provide a seamless online shopping experience.
